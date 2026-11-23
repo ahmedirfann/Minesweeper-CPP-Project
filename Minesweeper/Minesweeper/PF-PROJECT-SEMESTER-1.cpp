@@ -262,6 +262,25 @@ while (!WindowShouldClose())
                 gameWon = true;
             }
         }
+// RESTART OPTION
+
+        if ((gameOver || gameWon) &&
+            IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
+        {
+            Vector2 mousePosition = GetMousePosition();
+
+            if (mousePosition.x >= 220 && mousePosition.x <= 380 &&
+                mousePosition.y >= 490 && mousePosition.y <= 535)
+            {
+                resetGame();
+            }
+        }
+
+        if (!gameOver && !gameWon)
+        {
+            elapsedTime = GetTime() - startTime;
+        }
+
 
 
 
