@@ -57,4 +57,20 @@ void revealTile(int row, int col)
         }
     }
 }
+void resetGame()
+
+{
+    // Reset board and game variables
+
+    for (int row = 0; row < ROWS; row++)
+    {
+        for (int col = 0; col < COLS; col++)
+        {
+            board[row][col] = 0;
+            revealed[row][col] = false;
+            flagged[row][col] = false;
+        }
+    }
+
+
 
