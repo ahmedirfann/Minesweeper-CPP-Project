@@ -181,7 +181,35 @@ int main()
         }
     }
 
+while (!WindowShouldClose())
+    {
+        // LEFT CLICK
 
+        if (!gameOver && !gameWon &&
+            IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
+        {
+            Vector2 mousePosition = GetMousePosition();
+
+            int col = (mousePosition.x - startX) / TILE_SIZE;
+            int row = (mousePosition.y - startY) / TILE_SIZE;
+
+            if (row >= 0 && row < ROWS &&
+                col >= 0 && col < COLS)
+            {
+                if (!flagged[row][col] && !revealed[row][col])
+                {
+                    if (board[row][col] == -1)
+                    {
+                        gameOver = true;
+                        revealed[row][col] = true;
+                    }
+                    else
+                    {
+                        revealTile(row, col);
+                    }
+                }
+            }
+        }
 
 
 
