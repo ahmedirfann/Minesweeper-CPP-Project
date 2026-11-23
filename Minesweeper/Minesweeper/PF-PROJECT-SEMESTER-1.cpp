@@ -71,6 +71,29 @@ void resetGame()
             flagged[row][col] = false;
         }
     }
+    startTime = GetTime();
+    elapsedTime = 0;
+
+    gameOver = false;
+    gameWon = false;
+    flagsPlaced = 0;
+
+    // Place new mines
+
+    int minesPlaced = 0;
+
+    while (minesPlaced < MINES)
+    {
+        int row = rand() % ROWS;
+        int col = rand() % COLS;
+
+        if (board[row][col] != -1)
+        {
+            board[row][col] = -1;
+            minesPlaced++;
+        }
+    }
+
 
 
 
