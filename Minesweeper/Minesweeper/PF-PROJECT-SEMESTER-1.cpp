@@ -210,6 +210,37 @@ while (!WindowShouldClose())
                 }
             }
         }
+// RIGHT CLICK
+
+        if (!gameOver && !gameWon &&
+            IsMouseButtonPressed(MOUSE_BUTTON_RIGHT))
+        {
+            Vector2 mousePosition = GetMousePosition();
+
+            int col = (mousePosition.x - startX) / TILE_SIZE;
+            int row = (mousePosition.y - startY) / TILE_SIZE;
+
+            if (row >= 0 && row < ROWS &&
+                col >= 0 && col < COLS)
+            {
+                if (!revealed[row][col])
+                {
+                    if (flagged[row][col])
+                    {
+                        flagged[row][col] = false;
+                        flagsPlaced--;
+                    }
+                    else if (flagsPlaced < MINES)
+                    {
+                        flagged[row][col] = true;
+                        flagsPlaced++;
+                    }
+                }
+            }
+        }
+
+        startTime = GetTime();
+
 
 
 
