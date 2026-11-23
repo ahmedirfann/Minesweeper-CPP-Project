@@ -240,6 +240,29 @@ while (!WindowShouldClose())
         }
 
         startTime = GetTime();
+ // CHECK WIN CONDITION
+
+        if (!gameOver && !gameWon)
+        {
+            int safeTiles = 0;
+
+            for (int row = 0; row < ROWS; row++)
+            {
+                for (int col = 0; col < COLS; col++)
+                {
+                    if (revealed[row][col] && board[row][col] != -1)
+                    {
+                        safeTiles++;
+                    }
+                }
+            }
+
+            if (safeTiles == ROWS * COLS - MINES)
+            {
+                gameWon = true;
+            }
+        }
+
 
 
 
