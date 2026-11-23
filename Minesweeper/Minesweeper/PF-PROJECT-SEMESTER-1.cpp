@@ -93,6 +93,43 @@ void resetGame()
             minesPlaced++;
         }
     }
+    // Calculate neighbouring mines
+
+    for (int row = 0; row < ROWS; row++)
+    {
+        for (int col = 0; col < COLS; col++)
+        {
+            if (board[row][col] == -1)
+            {
+                continue;
+            }
+
+            int count = 0;
+
+            for (int i = -1; i <= 1; i++)
+            {
+                for (int j = -1; j <= 1; j++)
+                {
+                    int newRow = row + i;
+                    int newCol = col + j;
+
+                    if (newRow >= 0 && newRow < ROWS &&
+                        newCol >= 0 && newCol < COLS)
+                    {
+                        if (board[newRow][newCol] == -1)
+                        {
+                            count++;
+                        }
+                    }
+                }
+            }
+
+            board[row][col] = count;
+        }
+    }
+}
+
+
 
 
 
