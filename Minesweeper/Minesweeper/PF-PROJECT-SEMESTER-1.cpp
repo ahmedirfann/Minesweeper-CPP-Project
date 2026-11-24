@@ -125,7 +125,30 @@ void resetGame()
     }
 }
 
-
+void setDifficulty()
+{
+    if (difficulty == 1)
+    {
+        ROWS = 9;
+        COLS = 9;
+        MINES = 10;
+        TILE_SIZE = 50;
+    }
+    else if (difficulty == 2)
+    {
+        ROWS = 16;
+        COLS = 16;
+        MINES = 40;
+        TILE_SIZE = 40;
+    }
+    else if (difficulty == 3)
+    {
+        ROWS = 16;
+        COLS = 30;
+        MINES = 99;
+        TILE_SIZE = 32;
+    }
+}
 
 int main()
 {
