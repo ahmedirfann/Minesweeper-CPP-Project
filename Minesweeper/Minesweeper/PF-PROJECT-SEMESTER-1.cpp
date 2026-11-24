@@ -209,6 +209,44 @@ int main()
 
     while (!WindowShouldClose())
         {
+            if (showStartMenu)
+              {
+            if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
+        {
+        Vector2 mouse = GetMousePosition();
+
+        Rectangle beginnerButton = { 400, 250, 300, 70 };
+        Rectangle intermediateButton = { 400, 350, 300, 70 };
+        Rectangle expertButton = { 400, 450, 300, 70 };
+
+        if (CheckCollisionPointRec(mouse, beginnerButton))
+        {
+            difficulty = 1;
+        }
+        else if (CheckCollisionPointRec(mouse, intermediateButton))
+        {
+            difficulty = 2;
+        }
+        else if (CheckCollisionPointRec(mouse, expertButton))
+        {
+            difficulty = 3;
+        }
+        else
+        {
+            difficulty = 0;
+        }
+
+        if (difficulty != 0)
+        {
+            setDifficulty();
+            resetGame();
+
+            startX = (windowWidth - COLS * TILE_SIZE) / 2;
+            startY = 90;
+
+            showStartMenu = false;
+        }
+    }
         // LEFT CLICK
         if (!gameOver && !gameWon &&
             IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
