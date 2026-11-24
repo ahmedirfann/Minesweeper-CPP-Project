@@ -11,6 +11,7 @@ int ROWS = 9;
 int COLS = 9;
 int MINES = 10;
 int TILE_SIZE = 50;
+int difficulty = 1;
 
 int board[MAX_ROWS][MAX_COLS] = { 0 };
 bool revealed[MAX_ROWS][MAX_COLS] = { false };
@@ -69,7 +70,7 @@ void resetGame()
             flagged[row][col] = false;
         }
     }
-    startTime = GetTime();
+    startTime = (float)GetTime();
     elapsedTime = 0;
 
     gameOver = false;
@@ -109,8 +110,7 @@ void resetGame()
                     int newRow = row + i;
                     int newCol = col + j;
 
-                    if (newRow >= 0 && newRow < ROWS &&
-                        newCol >= 0 && newCol < COLS)
+                    if (newRow >= 0 && newRow < ROWS && newCol >= 0 && newCol < COLS)
                     {
                         if (board[newRow][newCol] == -1)
                         {
@@ -124,6 +124,9 @@ void resetGame()
         }
     }
 }
+
+
+
 int main()
 {
     srand(time(0));
