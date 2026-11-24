@@ -163,9 +163,9 @@ int main()
     int windowHeight = 750;
 
     InitWindow(windowWidth, windowHeight, "Minesweeper");
-    bombTexture = LoadTexture("bomb.png");
-    flagTexture = LoadTexture("flag.png");
-    explosionTexture = LoadTexture("explosion_spritesheet.png");
+    bombTexture = LoadTexture("Assets/bomb.png");
+    flagTexture = LoadTexture("Assets/flag.png");
+    explosionTexture = LoadTexture("Assets/explosion_spritesheet.png");
     startTime = (float)GetTime();
     elapsedTime = 0;
 
