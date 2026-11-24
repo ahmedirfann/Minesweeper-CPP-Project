@@ -1,0 +1,4 @@
+Libraries used:
+1. cstdlib
+2. ctime
+3. "raylib.h"
